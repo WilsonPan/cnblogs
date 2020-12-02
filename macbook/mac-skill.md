@@ -8,6 +8,18 @@
     export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7891
     ```
 
+- **修改host**
+    
+    ```bash
+    sudo vi /etc/hosts
+    ```
+
+- **刷新DNS**
+
+    ```bash
+    sudo dscacheutil -flushcache
+    ```
+    
 ## 常用命令
 
 - **查询端口，结束进程**

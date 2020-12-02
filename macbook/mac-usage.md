@@ -76,7 +76,6 @@
     ```bash
     brew tap isen-ng/dotnet-sdk-versions
     brew cask install <version>
-
     ```
 
     - 卸载
@@ -85,10 +84,40 @@
     brew cask zap <version>
     ```
 
-## 说明
+## 软件使用
 
 - macos 连接 mssql 需要freetds
 
-```bash
-brew install freetds
-```
+    ```bash
+    brew install freetds
+    ```
+
+- nginx使用
+
+1. 安装
+
+    ```bash
+    brew install nginx
+    ```
+
+2. 服务启动
+
+    ```bash
+    brew services start nginx
+    ```
+
+3. 关闭服务
+
+    ```bash
+    brew services stop nginx
+    ```
+
+4. 配置与日志文件路径
+
+    ```bash
+    # 配置
+    cd /usr/local/etc/nginx
+
+    # 日志
+    cd /usr/local/var/log/nginx/
+    ```
