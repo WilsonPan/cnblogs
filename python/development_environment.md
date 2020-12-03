@@ -1,8 +1,8 @@
 # Python 开发环境
 
-> 环境
-- OS: macOS Big Sur
-- IDE: VSCode
+- [Python 开发环境](#python-开发环境)
+  - [开发环境](#开发环境)
+  
 
 ## 开发环境
 

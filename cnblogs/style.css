@@ -102,10 +102,7 @@
 }
 
 #topics .cnblogs-markdown h1 {
-    font-size: 1.8em;
-    font-weight: bold;
-    line-height: 1.5;
-    margin: 10px 0;
+    display: none;
 }
 
 #topics .cnblogs-markdown h2 {
