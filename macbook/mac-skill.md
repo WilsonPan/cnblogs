@@ -87,3 +87,5 @@
 | fn + right          | 行尾               |
 | fn + up             | page up            |
 | fn + down           | page down          |
+| command + w         | 关闭当前窗口       |
+| command + q         | 关闭当前程序       |
