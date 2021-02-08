@@ -13,7 +13,7 @@
 
 - **Lambda** 
     
-    ```python
+    ```py
     array = [12, 65, 54, 39, 102, 339, 221, 50, 70, 10]
 
     result = list(filter(lambda m: m < 20, array))
@@ -23,7 +23,7 @@
 
 - **获取对象唯一Id**
 
-    ```python
+    ```py
     x = ('apple', 'banana', 'cherry')
     y = id(x)
     print(y)
@@ -31,7 +31,7 @@
 
 - **动态导入搜索路径**
   
-  ```python
+  ```py
   import sys
   sys.path.append('<path')
   ```
@@ -47,7 +47,7 @@
 
 - **写入json**
   
-    ```python
+    ```py
     obj = {}
     obj["name"] = "wilson"
 
@@ -58,7 +58,7 @@
 
 - **从文件读到json对象**
     
-    ```python
+    ```py
     with open(filename, 'r') as fp:
         json.load(fp)
     ```
