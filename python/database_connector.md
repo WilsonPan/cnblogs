@@ -5,7 +5,6 @@
   - [Azure SQL databases](#azure-sql-databases)
   - [MySQL](#mysql)
 
-
 ## Mongodb
 
 1. 安装`pymongo`包
@@ -76,7 +75,7 @@
     ```
 
 3. 插入数据
-   
+
     ```python
     import pymssql  
     conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')  
@@ -102,7 +101,6 @@
         print str(row[0]) + " " + str(row[1]) + " " + str(row[2])     
         row = cursor.fetchone()
     ```
-
 
 ## MySQL
 
@@ -136,7 +134,7 @@
     conn.close()
     ```
 
-2. 插入数据
+3. 插入数据
 
     ```python
     import pymysql
@@ -160,4 +158,3 @@
 
     conn.close()
     ```
-    
