@@ -122,8 +122,19 @@ Git 有三种状态，你的文件可能处于其中之一
 - 合并提交
 
     ```bash
-    git rebase -i HEAD~3                    # 交互式合并最近3次提交
-    git rebase -i <commit_id>               # 变基到指定提交
+    git rebase -i HEAD~3                                    # 交互式合并最近3次提交
+    git rebase -i <commit_id>                               # 变基到指定提交
+    ```
+
+- 标签
+
+    ```bash
+    git tag --list                                          # 列出标签名称
+    git tag -a 'v001' -m 'release at 2021/02/20 12:00'      # 打 tag
+    git checkout <tag_name>                                 # checkout tag
+    git push --tag                                          # 推送tag到远程
+    git tag -d <tag_name>                                   # 删除本地tag
+    git push origin -d tag <tag_name>                       # 删除远程tag
     ```
 
 - 还原分支
@@ -139,9 +150,50 @@ Git 有三种状态，你的文件可能处于其中之一
     **已推送**
 
     ```bash
-    
+    git revert <commit_id>                      # 还原修改，新建一个新的提交，提交历史不会覆盖
+
+    git reset <commit_id> && git push --force   # 重置HEAD，强制推送，覆盖提交历史
     ```
 
 ## 检查历史和状态
 
+- 查看差异
+
+    ```bash
+    git diff 
+    ```
+
 ## 协同工作
+
+## 其他
+
+- 配置
+
+    ```bash
+    git config --list                               # 列出所有配置
+    git config --list --local                       # 列出所有本地配置
+    git config --list --global                      # 列出所有全局配置
+
+    git config user.name "Wilson Pan"               # 设置提交名称
+    git config user.email wilsonpan@github.com      # 设置提交邮箱
+    git config --global pull.rebase=false           # 全局设置
+    git config --unset user.name                    # 删除变量名    
+    ```
+
+- 设置别名
+  
+  ```bash
+  git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"                                  # git lg 查看日志
+
+  git config --global alias.last 'lg -p -1'         # 显示最近一次提交变更
+  ```
+
+- 常用查看
+
+    ```bash
+    git remote -v                                   # 查看仓库远程地址
+    git branch                                      # 列出当前分支
+    git branch -a                                   # 列出所有分支
+    git branch -d <branch_name>                     # 删除完全合并的分支
+    git branch -D <branch_name>                     # 删除分支（即使没有合并）
+    ```
