@@ -37,9 +37,9 @@ Git 有三种状态，你的文件可能处于其中之一
 - 创建一个新仓库/重新初始化已有仓库
 
     ```bash
-    git init                    #初始化仓库
-    git init --template=<dir>   #使用模版创建仓库
-    git init -b live            #覆盖初始分支名称 
+    git init                                #初始化仓库
+    git init --template=<dir>               #使用模版创建仓库
+    git init -b live                        #覆盖初始分支名称 
     ```
 
 - 克隆远程仓库
@@ -161,14 +161,65 @@ Git 有三种状态，你的文件可能处于其中之一
 
     ```bash
     git diff                                    # 显示工作区与索引、仓库之间差异
+    git diff --cached                           # 查看已经暂存起来的变化
+    git diff --staged                           # 已暂存文件与最后一次提交的文件差异
     git diff --name-only                        # 只显示变更文件
     git diff --stat                             # 显示变更统计
     git diff <file_name>                        # 显示指定文件差异
     git diff <commit_id>                        # 显示与指定提交差异
     git diff <branch_name>                      # 显示与指定分支差异
+    git diff > <file_name>                      # 将差异生成补丁
+    git diff -S"git diff"                       # 过滤不包含字符串的差异
+    git diff -G"\d+"                            # 过滤不符合正则的差异
+    git diff --word-diff-regex=.                # 将每个字符看作单词，并相应地逐个字符地显示差异
+    ```
+
+- 查找
+  
+    ```bash
+    # 文件搜索
+    git grep -n wilson                          # 查找包含wilson文件
+    git grep --full-name -n  wilson             # 查找包含wilson文件
+    git grep -c/--count wilson                  # 显示总匹配行数，而不显示匹配的行
+    git grep --cached                           # 在索引区搜索而不是在工作区
+    ```
+
+- 提交日志
+
+    ```bash
+    git log -S MAX_THREADS --oneline            # 查找包含MAX_THREADS的提交
+    git log -L 162,170:git.md                   # 日志行搜索，搜索162～170提交变更历史
+    git log -p                                  # 显示变更内容
+    git log --stat                              # 显示变更统计
+    git log --after="2020-08-21"                # 按日期过滤日志
+    git log --author="Wilson"                   # 按作者过滤日志
+    git log --grep="JRA-224:"                   # 按提交信息过滤日志
+    git log <file_name>                         # 按文件过滤提交日志
+    git log -S "Hello, World!"                  # 按文件内容过滤
+    git log --no-merges                         # 不显示合并历史
+    git log --merges                            # 只显示合并历史
+    ```
+
+- 查看
+
+    ```bash
+    git status                                  # 显示工作区状态
+    git status <file_name>                      # 查看指定文件状态
+    git status -v                               # 冗长输出
+    git status -s                               # 以简洁的格式显示状态
     ```
 
 ## 协同工作
+
+- 协同
+
+    ```bash
+    git fetch                                   # 下拉远程分支
+    git pull                                    # 下拉远程并且合并
+    git pull --rebase                           # 使用变基操作取代合并操作以合入修改
+    git push                                    # 推送本地提交到远程服务器
+    git push -n/--dry-run                       # 演习
+    ```
 
 ## 其他
 
