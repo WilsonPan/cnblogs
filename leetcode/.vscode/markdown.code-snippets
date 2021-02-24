@@ -1,0 +1,25 @@
+{
+	"leetcode markdown template": {
+		"scope": "markdown",
+		"prefix": "leetcode_template",
+		"body": [
+			"# $TM_FILENAME_BASE\n",
+			"## 题目\n",
+			"### 示例 1\n",
+			"```bash",
+			"```\n",
+			"### 示例 2\n",
+			"```bash",
+			"```\n",
+			"## 解析\n",
+			"- 难点\n",
+			"- 算法流程\n",
+			"## 源码\n",
+			"```py",
+			"```\n",
+			"## 引用\n",
+			"[${TM_FILENAME_BASE/(\\[LeetCode\\])/LeetCode - /g}]($1)",
+		],
+		"description": "leetcode markdown template"
+	}
+}
