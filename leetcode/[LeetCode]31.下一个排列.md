@@ -99,3 +99,5 @@ class Solution:
 ## 引用
 
 [LeetCode - 31.下一个排列](https://leetcode-cn.com/problems/next-permutation/)
+
+[源码 - GitHub](https://github.com/WilsonPan/leetcode/blob/main/31.%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97.py)
