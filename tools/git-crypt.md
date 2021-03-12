@@ -66,7 +66,28 @@
     git-crypt add-gpg-user <USER_ID>  # <USER_ID>填入上面输入的名称/key，不然会报错
     ```
 
-## 原理
+5. 上传代码
+
+    ```bash
+    git add . && git commit -m 'git crypt'
+
+    git push
+    ```
+
+6. 导出密钥(分发给有需要的团队内部人员)
+
+    ```bash
+    git-crypt export-key /Users/wilsonpan/wilson.pan/keys/git-crypt-key
+    ```
+
+7. 解密
+
+    ```bash
+    git-crypt unlock
+    git-crypt unlock /Users/wilsonpan/wilson.pan/keys/git-crypt-key
+    ```
+
+当上面加密步骤操作完，本地操作是无感知，服务器上文件是加密的二进制文件，其他成员克隆/更新需要使用`git-crypt unlock <key_file>`解密，只需要操作一次，以后都是正常提交推送即可
 
 ## 引用
 
