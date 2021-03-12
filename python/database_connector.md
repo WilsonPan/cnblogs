@@ -8,7 +8,7 @@
 ## Mongodb
 
 1. 安装`pymongo`包
-   
+
     ```bash
     pip install pymongo
     ```
