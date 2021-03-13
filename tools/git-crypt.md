@@ -32,7 +32,53 @@
 
 ## 使用
 
-1. 生成密钥
+### 方法一（不依赖GPG）
+
+1. 初始化仓库
+
+    ```bash
+    git-crypt init
+    ```
+
+2. 创建`.gitattributes`文件并编辑指定的加密文件
+
+    ```bash
+    touch .gitattributes    
+
+    vi .gitattributes
+    ```
+
+    格式如下
+
+    ```text
+    appsettings.json filter=git-crypt diff=git-crypt
+    *.key filter=git-crypt diff=git-crypt
+    config/**.json filter=git-crypt diff=git-crypt
+    ```
+
+3. 上传代码
+
+    ```bash
+    git add . && git commit -m 'git crypt'
+
+    git push
+    ```
+
+4. 导出密钥
+
+    ```bash
+    git-crypt export-key /Users/wilsonpan/wilson.pan/keys/git-crypt-key
+    ```
+
+5. 解密（第一次克隆之后）
+
+    ```bash
+    git-crypt unlock /Users/wilsonpan/wilson.pan/keys/git-crypt-key
+    ```
+
+### 方法二（使用GPG）
+
+1. 初始化仓库
 
     ```bash
     git-crypt init
@@ -57,7 +103,7 @@
 3. 生成密钥
 
     ```bash
-    gpg --gen-key # 按提示输入相关信息
+    gpg --gen-key # 按提示输入相关信息, name, email
     ```
 
 4. 配置git-crypt
@@ -74,20 +120,29 @@
     git push
     ```
 
-6. 导出密钥(分发给有需要的团队内部人员)
+6. 导出GPG密钥
 
     ```bash
-    git-crypt export-key /Users/wilsonpan/wilson.pan/keys/git-crypt-key
+    gpg --output git-crypt.pgp --armor --export-secret-key <USER_ID>  # 步骤二生成
     ```
 
-7. 解密
+7. 导入GPG密钥(团队成员)
+
+    ```bash
+    gpg --import git-crypt.pgp
+    ```
+
+8. 解密
 
     ```bash
     git-crypt unlock
-    git-crypt unlock /Users/wilsonpan/wilson.pan/keys/git-crypt-key
     ```
 
-当上面加密步骤操作完，本地操作是无感知，服务器上文件是加密的二进制文件，其他成员克隆/更新需要使用`git-crypt unlock <key_file>`解密，只需要操作一次，以后都是正常提交推送即可
+两个方法都是使用公钥私钥非对称加密，只要私钥不泄露，安全性都是一样，但是方式二可以设置密码保护私钥，防篡改，方式二比方式一安全性又高一点
+
+方式二需要用到GPG，步骤也多一点，安全就是要牺牲一点便利性。
+
+当上面加密步骤操作完，本地操作是无感知，服务器上文件是加密的二进制文件，其他成员克隆/更新需要使用`git-crypt unlock`解密，只需要操作一次，以后都是正常提交推送即可
 
 服务器上看是这样
 
