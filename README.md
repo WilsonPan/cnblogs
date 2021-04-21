@@ -16,6 +16,10 @@
 - [Git - 加密保护](./tools/git-crypt.md)
 - [Chrome - 使用技巧](./tools/chrome_skill.md)
 
+## Linux
+
+- [软件管理](./linux/software.md)
+
 ## 算法
 
 - [LeetCode 15.三数之和](./leetcode/[LeetCode]15.三数之和.md)
