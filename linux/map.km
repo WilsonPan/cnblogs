@@ -1,0 +1,134 @@
+{
+    "root": {
+        "data": {
+            "id": "caivfhj2u2o0",
+            "created": 1617938777756,
+            "text": "Linux命令"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "can4hw0xnmw0",
+                    "created": 1618370595855,
+                    "text": "文件查找"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "card22opxqw0",
+                            "created": 1618800986344,
+                            "text": "find",
+                            "background": "#31849b"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "card31bwjls0",
+                                    "created": 1618801061755,
+                                    "text": "实时查找",
+                                    "background": "#e36c0a"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "card2581t5s0",
+                            "created": 1618800991865,
+                            "text": "locate",
+                            "background": "#31849b"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "card36m6xfs0",
+                                    "created": 1618801073261,
+                                    "text": "文件系统索引数据库",
+                                    "background": "#e36c0a"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "card3kpg06w0",
+                                    "created": 1618801103933,
+                                    "text": "定期执行更新命令",
+                                    "background": "#e36c0a"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "card3xi3cjc0",
+                                            "created": 1618801131787,
+                                            "text": "updatedb",
+                                            "background": "#548dd4"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "card44cbxm80",
+                    "created": 1618801146676,
+                    "text": "查看文件内容"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "card498iyf40",
+                            "created": 1618801157329,
+                            "text": "cat",
+                            "background": "#31849b"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "card4bq0w9k0",
+                            "created": 1618801162741,
+                            "text": "vi",
+                            "background": "#31849b"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "card4dnofuw0",
+                            "created": 1618801166953,
+                            "text": "head",
+                            "background": "#31849b"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "card4qudt080",
+                            "created": 1618801195656,
+                            "text": "tail",
+                            "background": "#31849b"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "card4t2shqw0",
+                            "created": 1618801200518,
+                            "text": "more",
+                            "background": "#31849b"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "classic",
+    "version": "1.4.43"
+}
