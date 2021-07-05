@@ -78,14 +78,17 @@
     - 安装  
 
     ```bash
-    brew tap isen-ng/dotnet-sdk-versions
-    brew cask install <version>
+    brew tap isen-ng/dotnet-sdk-versions        # 添加新的Tap
+    brew install --cask <version>               # 安装指定版本
+    brew uninstall --zap --cask <version>       # 卸载指定版本
     ```
 
-    - 卸载
+9. 高级使用
 
     ```bash
-    brew cask zap <version>
+    brew list --cask                            # 列出所有Casks
+    brew outdated --cask                        # 列出可更新Casks
+    brew deps --tree --installed                # 列出当前已安装依赖关系
     ```
 
 ## 软件使用
