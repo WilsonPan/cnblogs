@@ -1,5 +1,4 @@
-# Python 常用方法 
-
+# Python 常用方法
 
 ## 语法
 
@@ -11,8 +10,8 @@
     # reusult = 20
     ```
 
-- **Lambda** 
-    
+- **Lambda**
+
     ```py
     array = [12, 65, 54, 39, 102, 339, 221, 50, 70, 10]
 
@@ -37,12 +36,13 @@
   ```
 
 - **获取变量类型**
-    
+
     ```python
     val = {}
 
     print(type(val))
     ```
+
 ## 文件相关
 
 - **写入json**
@@ -57,7 +57,7 @@
     ```
 
 - **从文件读到json对象**
-    
+
     ```py
     with open(filename, 'r') as fp:
         json.load(fp)
