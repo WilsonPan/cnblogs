@@ -78,3 +78,23 @@ lvscan                                          # 扫描并显示系统中逻辑
 lvcreate --size 10G --name snap01 /dev/vg01     # 创建逻辑卷
 lvremove /dev/vg01/snap01                       # 删除逻辑卷 
 ```
+
+### 动态扩容/缩容
+
+- ext2/ext3/ext4文件系统的调整命令是resize2fs（增大和减小都支持）
+
+```bash
+lvextend -L 120G /dev/mapper/centos-home     #增大至120G
+lvextend -L +20G /dev/mapper/centos-home     #增加20G
+lvreduce -L 50G /dev/mapper/centos-home      #减小至50G
+lvreduce -L -8G /dev/mapper/centos-home      #减小8G
+resize2fs /dev/mapper/centos-home            #执行调整
+```
+
+- xfs文件系统的调整命令是xfs_growfs（只支持增大）
+
+```bash
+lvextend -L 120G /dev/mapper/centos-home     #增大至120G
+lvextend -L +20G /dev/mapper/centos-home     #增加20G
+xfs_growfs /dev/mapper/centos-home           #执行调整
+```
