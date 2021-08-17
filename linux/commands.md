@@ -18,6 +18,21 @@ find . -type f -atime +7                            # 超过七天内被访问�
 find . -type f -size +10k                           # 搜索大于10KB的文件
 ```
 
+## 文件操作
+
+```bash
+cp -rfb ./* ../backup                               # 复制到当前目录的兄弟目录 backup
+cp -r aaa/.* ./bbb                                  # 将 aaa 目录下的，所有`.`开头的文件，复制到 bbb 目录中
+
+mv /usr/men/* .                                     # 将目录/usr/men中的所有文件移到当前目录
+mv file_1.txt /home/office/                         # 移动文件
+mv file_2.txt file_3.txt file_4.txt /home/office/   # 移动多个文件
+mv -vn *.txt /home/office                           # 不要覆盖任何已存在的文件
+mv -f *.txt /home/office                            # 强制覆盖已经存在的文件
+
+dd if=/dev/zero of=sun.txt bs=1M count=1            # 创建了一个1M大小的文件sun.txt
+```
+
 ## 文本搜索
 
 ```bash
