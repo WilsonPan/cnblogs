@@ -62,7 +62,8 @@ du -sh ./*/                                         # 只显示当前目录下�
 ## 组合使用
 
 ```bash
-find . -type f -name "*.log" | xargs grep "warning"         # 查找符合条件文件，并搜索关键字
-find . -name "*.py" | xargs cat | grep -v ^$ |wc -l         # 代码行数统计, 排除空行
-grep -i "warning" > result.log                              # 查找结果写入文件
+find . -type f -name "*.log" | xargs grep "warning"                                             # 查找符合条件文件，并搜索关键字
+find . -name "*.py" | xargs cat | grep -v ^$ |wc -l                                             # 代码行数统计, 排除空行
+grep -i "warning" > result.log                                                                  # 查找结果写入文件
+echo `date +%Y%m%d%H%M%S` | xargs -I {} sh -c 'mkdir ./bak/{}; cp -a /mongodb/data ./bak/{}'    # 按日期创建文件夹备份
 ```
