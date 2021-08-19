@@ -77,9 +77,9 @@ export HOMEBREW_CORE_GIT_REMOTE="https://github.com/Homebrew/${BREW_TYPE}-core.g
     brew install git --only-dependencies                                # 只安装依赖，不安装软件包
 
     brew uninstall git                                                  # 卸载软件包，但不删除依赖
-    brew rm git                                                         # 卸载软件包，若依赖不再使用，依赖也删除
 
-    
+    brew tap beeftornado/rmtree                                         # 安装rmtree命令
+    brew rmtree git                                                     # 卸载软件包并删除依赖
     ```
 
 3. 管理软件包
