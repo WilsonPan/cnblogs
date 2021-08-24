@@ -73,6 +73,31 @@ docker image save <image> -o <path>         # 保存镜像到文件
 docker image tag <image> <image>:<tag>      # 镜像打标签
 ```
 
+**Dockerfile 指令详解**  
+Dockerfile 是一个文本文件，其内包含了一条条的 指令(Instruction)，每一条指令构建一层，因此每一条指令的内容，就是描述该层应当如何构建
+
+| 指令        | 作用                 | 说明                                                                     |
+| ----------- | -------------------- | ------------------------------------------------------------------------ |
+| FROM        | 指定基础镜像         | FROM 是必备的指令，并且必须是第一条指令                                  |
+| COPY        | 复制文件             | 两种格式，一种类似于命令行，一种类似于函数调用                           |
+| ADD         | 更高级的复制文件     | 在COPY基础上增加自动解压缩的场合                                         |
+| RUN         | 执行命令             | 镜像构建步骤                                                             |
+| CMD         | 容器启动命令         | 容器默认执行的命令                                                       |
+| ENTRYPOINT  | 入口点               | 容器启动程序及参数                                                       |
+| ENV         | 设置环境变量         | 定义了环境变量，那么在后续的指令中，就可以使用这个环境变量               |
+| ARG         | 构建参数             | ARG 所设置的构建环境的环境变量，在将来容器运行时是不会存在这些环境变量的 |
+| VOLUME      | 定义匿名卷           | 对于数据库类需要保存动态数据的应用，其数据库文件应该保存于卷(volume)     |
+| EXPOSE      | 暴露端口             | 声明容器运行时提供服务的端口                                             |
+| WORKDIR     | 指定工作目录         | 指定当前目录，如该目录不存在，WORKDIR 会帮你建立目录                     |
+| USER        | 指定当前用户         | 这个用户必须是事先建立好的，否则无法切换                                 |
+| HEALTHCHECK | 健康检查             | 告诉 Docker 应该如何进行判断容器的状态是否正常                           |
+| ONBUILD     | 为构建下一层镜像准备 | 构建下一级镜像的时候才会被执行                                           |
+| LABEL       | 镜像添加元数据       | 指令用来给镜像以键值对的形式添加一些元数据（metadata）                   |
+| SHELL       | 指令                 | SHELL 指令可以指定 RUN ENTRYPOINT CMD 指令的 shell，Linux 中默认为       |
+
+**镜像构建上下文**  
+当构建的时候，用户会指定构建镜像上下文的路径，docker build 命令得知这个路径后，会将路径下的所有内容打包，然后上传给 Docker 引擎。这样 Docker 引擎收到这个上下文包后，展开就会获得构建镜像所需的一切文件
+
 ### 容器
 
 镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的 类 和 实例 一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。
@@ -86,14 +111,28 @@ docker image tag <image> <image>:<tag>      # 镜像打标签
 相关命令
 
 ```bash
-docker run                                  # 构建并启动镜像
-docker run -t -i ubuntu:18.04 /bin/bash     # 启动一个 bash 终端，允许交互
-docker run -d ubuntu:18.04                  # 后台运行容器 
-docker container start <name>               # 重启已经停止容器
-docker 
+docker run                                                # 构建并启动镜像
+docker run -t -i ubuntu:18.04 /bin/bash                   # 启动一个 bash 终端，允许交互
+docker run -d ubuntu:18.04                                # 后台运行容器 
+docker container start <container>                        # 重启已经停止容器
+docker container stop <container>                         # 终止容器
+docker attach <container>                                 # 附加到容器中，执行exit导致容器推出
+docker exec -it <container> bash                          # 进入容器, 执行exit不会容器推出（推荐）
+docker export <container> > ubuntu.tar                    # 导出镜像
+cat ubuntu.tar | docker import - ubuntu:v1.0              # 导入容器快照
+docker container rm <container>                           # 删除一个处于终止状态的容器
+docker container prune                                    # 清理所有处于终止状态的容器
 ```
 
 ### 仓库
 
 镜像构建完成后，可以很容易的在当前宿主机上运行，但是，如果需要在其它服务器上使用这个镜像，我们就需要一个集中的存储、分发镜像的服务，Docker Registry 就是这样的服务。
 一个 Docker Registry 中可以包含多个 仓库（Repository）；每个仓库可以包含多个 标签（Tag）；每个标签对应一个镜像。
+
+相关命令
+
+```bash
+docker search centos                                      # 搜索仓库
+docker pull centos                                        # 拉取镜像
+docker push username/ubuntu:18.04                         # 推送镜像
+```
