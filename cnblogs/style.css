@@ -125,6 +125,16 @@
     color: rgb(11, 87, 173);
 }
 
+#topics .cnblogs-markdown h3 {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.5;
+    margin: 5px 0px;
+    border-bottom-width: 1px;
+    border-bottom-style: dotted;
+    border-bottom-color: rgb(204 214 226);
+}
+
 #topics .cnblogs-markdown p {
     margin-top: 0px;
     text-align: justify;
@@ -155,7 +165,7 @@
 }
 
 #topics .cnblogs-markdown table th {
-    background-color: #fafafa
+    background-color: #ddd
 }
 
 #topics .cnblogs-markdown table th,
